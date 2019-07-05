@@ -629,28 +629,28 @@
 .method public final A()Z
     .locals 1
 
-    iget-object v0, p0, Lcgm;->a:Lcvv;
+    #iget-object v0, p0, Lcgm;->a:Lcvv;
 
-    invoke-interface {v0}, Lcvv;->a()Z
+    #invoke-interface {v0}, Lcvv;->a()Z
 
-    iget-object v0, p0, Lcgm;->b:Lkib;
+    #iget-object v0, p0, Lcgm;->b:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
+    const/4 v0, 0x1		#p3mod live lens suggestion
 
     return v0
+
+    #:cond_0
+    #const/4 v0, 0x0
+
+    #return v0
 .end method
 
 .method public final B()Z
@@ -765,13 +765,15 @@
 
     iget-object v1, v1, Lkib;->a:Lmpj;
 
-    invoke-virtual {v1}, Lmpj;->b()Z
+	const-string v1, "pref_use_gphotos"
+
+    invoke-static {v1}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v1
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
@@ -883,13 +885,15 @@
 .method public final i()Z
     .locals 1
 
-    iget-object v0, p0, Lcgm;->b:Lkib;
+    #iget-object v0, p0, Lcgm;->b:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->b()Z
+    #invoke-virtual {v0}, Lmpj;->b()Z
 
-    move-result v0
+    #move-result v0
+	
+	const v0, 0x0	#p3mod enables Motion photo
 
     xor-int/lit8 v0, v0, 0x1
 
@@ -991,11 +995,13 @@
 
     iget-object v0, p0, Lcgm;->b:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
+	
+	const v0, 0x1	#p3mod enable top shot
 
     if-nez v0, :cond_0
 

@@ -66,6 +66,7 @@
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
+	:goto_100	#p3mod fixes crashes on some Pixel devices
     return-void
 
     :catchall_0
@@ -75,7 +76,7 @@
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw p1
+    goto :goto_100
 .end method
 
 .method public final asBinder()Landroid/os/IBinder;

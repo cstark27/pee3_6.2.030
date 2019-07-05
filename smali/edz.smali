@@ -107,17 +107,17 @@
 
     invoke-interface {v0}, Llzp;->a()V
 
-    iget-object v0, p0, Ledz;->k:Lkib;
+    #iget-object v0, p0, Ledz;->k:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->b()Z
+    #invoke-virtual {v0}, Lmpj;->b()Z		#p3mod - improve startup of UI
 
-    move-result v0
+    #move-result v0
 
-    if-nez v0, :cond_0
+    #if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Ledz;->c()V
+    #invoke-virtual {p0}, Ledz;->c()V
 
     :cond_0
     return-void

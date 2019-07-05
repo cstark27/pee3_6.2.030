@@ -638,6 +638,17 @@
 
     cmpg-float p1, v3, p1
 
+	const-string v5, "pref_permns_key"
+
+    invoke-static {v5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v5
+	
+	if-eqz v5, :cond_100
+
+	const p1, 0x0	#show Night Sight button all the time
+	
+	:cond_100
     if-gez p1, :cond_4
 
     iput v0, v2, Lfsp;->a:I

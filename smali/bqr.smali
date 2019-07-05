@@ -603,10 +603,29 @@
 
     move-result-object v0
 
-    invoke-virtual/range {p0 .. p0}, Lbqr;->g()Z
+    #invoke-virtual/range {p0 .. p0}, Lbqr;->g()Z
+
+    #move-result v2
+	
+	const-string v2, "pref_focus_key"	#p3mod focus tracking for video...turn off if turned off in settings, otherwise disable only for pixel 1 & 2
+	
+	invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v2
+	
+	#if-eqz v2, :cond_100
+	
+	sget v2, Lcbc;->sd710:I
 
+    if-nez v2, :cond_100
+	
+	sget v2, Lcbc;->sd845:I
+
+    if-nez v2, :cond_100
+	
+	const v2, 0x0	#p3mod 0 disables video tracking focus, 1 breaks EIS
+
+	:cond_100
     invoke-virtual {v0, v2}, Lbzt;->a(Z)Lbzt;
 
     move-result-object v0

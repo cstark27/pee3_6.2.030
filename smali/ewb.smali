@@ -298,6 +298,14 @@
     move-result p6
 
     if-eqz p6, :cond_2
+	
+	const-string p5, "pref_track_focus"	#focus tracking
+
+    invoke-static {p5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result p5
+	
+	if-nez p5, :cond_f
 
     sget-object p5, Lewb;->b:Ljava/lang/String;
 

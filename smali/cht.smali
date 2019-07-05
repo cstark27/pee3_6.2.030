@@ -193,19 +193,25 @@
 
     if-ne p2, p3, :cond_1
 
-    iget-object p1, p1, Lkib;->a:Lmpj;
-
-    invoke-virtual {p1}, Lmpj;->d()Z
+    invoke-static {}, Landroid/hardware/Camera;->getNumberOfCameras()I	#p3mod fix P3 front camera when not using crosshatch or blueline config
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    const v2, 0x3
+
+    if-lt v2, p1, :cond_0
 
     const/4 p1, 0x1
+
+    sput p1, Ldfa;->fixWideAngle:I
 
     goto :goto_0
 
     :cond_0
+    const/4 p1, 0x0
+
+    sput p1, Ldfa;->fixWideAngle:I
+
     nop
 
     :cond_1

@@ -77,14 +77,56 @@
 
     :cond_1
     :goto_0
-    sget-object v0, Lmms;->a:Lmms;
+	sget v0, Lcbc;->sd821:I
+
+    if-nez v0, :cond_a
+	
+	sget v0, Lcbc;->sd835:I
+
+    if-nez v0, :cond_a
+	
+	sget v0, Lcbc;->sd710:I
+
+    if-nez v0, :cond_a
+	
+	:cond_a
+    sget-object v0, Lmms;->a:Lmms;	#b:Lmfi and c:Lmfi work on the Pixel 2 to provide Synthetic Fill Flash a=EXTENDED b=FULL c=SIMPLE d=NONE
+	
+    invoke-static {v0}, Llrn;->a(Ljava/lang/Object;)Llrm;
+
+    move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_b
+	sget-object v0, Lmms;->b:Lmms;
 
     invoke-static {v0}, Llrn;->a(Ljava/lang/Object;)Llrm;
 
     move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_c
+	sget-object v0, Lmms;->c:Lmms;
 
-    :goto_1
-    nop
+    invoke-static {v0}, Llrn;->a(Ljava/lang/Object;)Llrm;
+
+    move-result-object v0
+	
+	goto :goto_1
+	
+	:cond_d
+	sget-object v0, Lmms;->d:Lmms;
+
+    invoke-static {v0}, Llrn;->a(Ljava/lang/Object;)Llrm;
+
+    move-result-object v0
+	
+	goto :goto_1
+    
+	:goto_1
+	nop
 
     const-string v1, "Cannot return null from a non-@Nullable @Provides method"
 

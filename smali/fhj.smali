@@ -3,8 +3,18 @@
 .source "PG"
 
 
+# static fields
+.field public static lens:I
+
+.field public static ZoomSelect:I
+
+
 # instance fields
 .field private final synthetic a:Lfhb;
+
+.field public backZoom:F
+
+.field public frontZoom:F
 
 
 # direct methods
@@ -64,6 +74,72 @@
     iget-object v0, p0, Lfhj;->a:Lfhb;
 
     iget-object v0, v0, Lfhb;->i:Lkpi;
+	
+	sget v1, Lfhj;->lens:I	#pixel 2016 gallery and portrait zoom fix
+
+    if-eqz v1, :cond_front
+
+	sget v1, Lfhj;->ZoomSelect:I
+	
+	if-eqz v1, :cond_110
+	
+	const v2, 0x1
+	
+	if-eq v1, v2, :cond_115
+	
+	const v2, 0x2
+	
+	if-eq v1, v2, :cond_120
+	
+	:cond_110
+	const v1, 0x3fc00000    # 1.5f
+	
+	goto :goto_0
+	
+	:cond_115
+	const v1, 0x3f800000    # 1.0f
+	
+	goto :goto_0
+	
+	:cond_120
+	const v1, 0x40000000    # 2.0f
+	
+	goto :goto_0
+	
+	:cond_front
+	sget v1, Lcbc;->sd845:I
+	
+	if-nez v1, :cond_845
+	
+	sget v1, Lfhj;->ZoomSelect:I
+	
+	if-eqz v1, :cond_212
+	
+	const v2, 0x1
+	
+	if-eq v1, v2, :cond_210
+	
+	const v2, 0x2
+	
+	if-eq v1, v2, :cond_212
+	
+	:cond_210
+    const v1, 0x3f800000    # 1.0f
+	
+	goto :goto_0
+	
+	:cond_212
+    const v1, 0x3f99999a    # 1.2f
+
+    goto :goto_0
+	
+	:cond_845
+    const v1, 0x3fc00000    # 1.5f
+
+    goto :goto_0
+
+    :goto_0
+    invoke-interface {v0, v1}, Lkpi;->b(F)V
 
     invoke-interface {v0}, Lkpi;->i()V
 
@@ -72,6 +148,8 @@
     iget-object v0, v0, Lfhb;->j:Ljun;
 
     sget-object v1, Lkgq;->h:Lkgq;
+	
+	const/4 v2, 0x1
 
     invoke-interface {v0, v1, v2}, Ljun;->b(Lkgq;Z)V
 

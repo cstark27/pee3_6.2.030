@@ -54,7 +54,7 @@
 
     if-eqz p1, :cond_0
 
-    sget-object p1, Lcbn;->d:Lcbk;
+    sget-object p1, Lcbn;->a:Lcbk;	#p3mod enables 60fps toggle on pixel 3
 
     invoke-interface {p0, p1}, Lcbf;->a(Lcbk;)V
 

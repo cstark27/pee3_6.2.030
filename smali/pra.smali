@@ -362,6 +362,8 @@
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
+	
+	const v1, 0x1	#p3mod enable more logging
 
     if-nez v1, :cond_1
 

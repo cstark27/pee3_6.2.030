@@ -70,33 +70,5 @@
 .method public final a(Llhc;)V
     .locals 2
 
-    :try_start_0
-    iget-object v0, p0, Llfh;->a:Llcv;
-
-    iget-object p1, p1, Llhc;->a:Lkwv;
-
-    iget-object v1, p0, Llfh;->b:Lljw;
-
-    invoke-virtual {v0, p1, v1}, Llcv;->a(Lkwt;Lljw;)V
-    :try_end_0
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception p1
-
-    invoke-static {p1}, Llfe;->a(Landroid/os/RemoteException;)Lcom/google/android/gms/common/api/Status;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Llfh;->a(Lcom/google/android/gms/common/api/Status;)V
-
-    return-void
-
-    :catch_1
-    move-exception p1
-
-    throw p1
+    return-void	#p3mod fixes not authorized error
 .end method

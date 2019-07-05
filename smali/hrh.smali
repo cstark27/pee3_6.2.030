@@ -77,17 +77,17 @@
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lhrh;->b:Lkib;
+    #iget-object v0, p0, Lhrh;->b:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x1		#p3mod enable photobooth
 
     goto :goto_1
 

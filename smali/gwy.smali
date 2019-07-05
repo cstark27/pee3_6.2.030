@@ -33,7 +33,16 @@
     move-result-object v0
 
     check-cast v0, Lkib;
+	
+	sget v1, Lcbc;->sd845:I		#p3mod Pixel 2 portrait crash fix
 
+    if-nez v1, :cond_100
+	
+	sget v1, Lcbc;->sd710:I
+
+    if-eqz v1, :cond_101
+
+	:cond_100
     iget-object v1, v0, Lkib;->a:Lmpj;
 
     invoke-virtual {v1}, Lmpj;->d()Z
@@ -52,6 +61,7 @@
 
     if-nez v0, :cond_0
 
+	:cond_101
     const/16 v2, 0x101
 
     goto :goto_0

@@ -62,6 +62,30 @@
     move-result v1
 
     if-nez v1, :cond_3
+	
+	invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "android.media.action.PORTRAIT"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_100
+
+    invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "android.media.action.NIGHTSIGHT"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_101
 
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -95,6 +119,25 @@
     goto :goto_1
 
     :cond_2
+	const-string v0, "pref_defmode_key"		#p3mod - default mode
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	const v1, 0x0
+	
+	if-eq v0, v1, :cond_camera
+	
+	const v1, 0x1
+	
+	if-eq v0, v1, :cond_100
+	
+	const v1, 0x2
+	
+	if-eq v0, v1, :cond_101
+	
+	:cond_camera
     sget-object v0, Lkgq;->b:Lkgq;
 
     goto :goto_1
@@ -102,6 +145,18 @@
     :cond_3
     :goto_0
     sget-object v0, Lkgq;->i:Lkgq;
+	
+	goto :goto_1
+
+    :cond_100
+    sget-object v0, Lkgq;->h:Lkgq;	#portrait mode
+
+    goto :goto_1
+	
+	:cond_101
+    sget-object v0, Lkgq;->n:Lkgq;	#night sight
+
+    goto :goto_1
 
     :goto_1
     nop

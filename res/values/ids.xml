@@ -443,4 +443,7 @@
     <item type="id" name="action_delete" />
     <item type="id" name="tiny_planet_editor" />
     <item type="id" name="photo_editor" />
+	<item type="id" name="seekBar2">false</item>
+    <item type="id" name="seekBar3">false</item>
+    <item type="id" name="seekBar">false</item>
 </resources>

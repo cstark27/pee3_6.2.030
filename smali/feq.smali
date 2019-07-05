@@ -1969,35 +1969,35 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    new-instance v2, Lfeu;
+    #new-instance v2, Lfeu;
 
-    invoke-direct {v2, p0}, Lfeu;-><init>(Lfeq;)V
+    #invoke-direct {v2, p0}, Lfeu;-><init>(Lfeq;)V
 
-    invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    #invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    const-string v1, "pref_launch_help"
+    #const-string v1, "pref_launch_help"
 
-    invoke-virtual {p0, v1}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    #invoke-virtual {p0, v1}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v1
+    #move-result-object v1
 
-    new-instance v2, Lfev;
+    #new-instance v2, Lfev;
 
-    invoke-direct {v2, v0}, Lfev;-><init>(Landroid/app/Activity;)V
+    #invoke-direct {v2, v0}, Lfev;-><init>(Landroid/app/Activity;)V
 
-    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    #invoke-virtual {v1, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    const-string v1, "pref_launch_feedback"
+    #const-string v1, "pref_launch_feedback"
 
-    invoke-virtual {p0, v1}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    #invoke-virtual {p0, v1}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v1
+    #move-result-object v1
 
-    new-instance v2, Lfew;
+    #new-instance v2, Lfew;
 
-    invoke-direct {v2, v0}, Lfew;-><init>(Landroid/app/Activity;)V
+    #invoke-direct {v2, v0}, Lfew;-><init>(Landroid/app/Activity;)V
 
-    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    #invoke-virtual {v1, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     invoke-virtual {p0}, Lfeq;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
@@ -2024,7 +2024,7 @@
 .end method
 
 .method public final onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     const-string p1, "pref_video_quality_back_key"
 
@@ -2037,5 +2037,125 @@
     invoke-direct {p0}, Lfeq;->c()V
 
     :cond_0
+	const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/google/android/apps/camera/legacy/app/settings/CameraSettingsActivity;->changed:Z
+
+    sget v0, Lcom/custom/extras;->sHdr_process:I
+
+    if-nez v0, :cond_3
+	
+	const-string v0, "pref_use_gphotos"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_always_sabre"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_sff_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_track_focus"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_lib_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_shutter_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_defmode_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_iso_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_focus_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_focus
+	
+	const-string v0, "pref_top_shot"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+	
+	:cond_1
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/google/android/apps/camera/legacy/app/settings/CameraSettingsActivity;->isrestart:Z
+
+    :cond_2
     return-void
+	
+	:cond_3
+	const-string v0, "HDR+ Processing. Force close app to update settings."
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	return-void
+	
+	:cond_focus
+	const-string v0, "pref_focus_key"
+	
+	invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	if-eqz v0, :cond_1
+	
+	const-string v0, "Focus Tracking will be internally disabled."
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	const v0, 0x0
+	
+	if-eqz v0, :cond_1
+	
+	return-void
 .end method

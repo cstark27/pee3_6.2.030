@@ -17,6 +17,32 @@
             <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/ic_hevc_gm2_24px" android:layout="@layout/preference_with_margin" android:title="@string/pref_video_hevc" android:key="pref_video_hevc_setting_key" android:summary="@string/pref_hevc_control_summary" android:defaultValue="false" />
         </PreferenceScreen>
     </PreferenceCategory>
+    <PreferenceScreen android:icon="@drawable/hamburger" android:layout="@layout/preference_with_margin_blue" android:title="P3 Mod Settings" android:key="pref_category_developer2">
+        <PreferenceCategory android:layout="@layout/preference_category_first_layout" android:title="General" android:key="pref_category_general">
+			<ListPreference android:icon="@drawable/camera_party_mode" android:entries="@array/pref_defmode_entries" android:layout="@layout/preference_with_margin" android:title="Default Launch Mode" android:key="pref_defmode_key" android:summary="%s" android:defaultValue="0" android:entryValues="@array/pref_defmode_entryvalues" />
+			<ListPreference android:icon="@drawable/chart_bell_curve" android:entries="@array/pref_lib_entries" android:layout="@layout/preference_with_margin" android:title="Custom Lib" android:key="pref_lib_key" android:summary="%s" android:defaultValue="0" android:entryValues="@array/pref_lib_entryvalues" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/google_photos" android:layout="@layout/preference_with_margin" android:title="Google Photos for Image Preview" android:key="pref_use_gphotos" android:summary="View photos in Google Photos" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/quantum_gm_ic_fast_forward_vd_theme_24" android:layout="@layout/preference_with_margin" android:title="4K Time Lapse" android:key="pref_4k_timelapse" android:summary="Enable UHD 4K for Time Lapse" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/account_plus_outline" android:layout="@layout/preference_with_margin" android:title="Portrait HDR+ Enhanced" android:key="pref_portenh_bsg" android:summary="Increase dynamic range in Portrait Mode but increases capture time" android:defaultValue="false" />
+            <ListPreference android:icon="@drawable/account_search_outline" android:entries="@array/pref_pzoom_entries" android:layout="@layout/preference_with_margin" android:title="Portrait Zoom" android:key="pref_pzoom_key" android:summary="%s" android:defaultValue="0" android:entryValues="@array/pref_pzoom_entryvalues" />
+        </PreferenceCategory>
+        <PreferenceCategory android:layout="@layout/preference_category_layout" android:title="Night Sight" android:key="pref_category_general">
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/tooltip_text_outline" android:layout="@layout/preference_with_margin" android:title="Permanent Night Sight Suggestion" android:key="pref_permns_key" android:summary="Quicker access to Night Sight" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/weather_night" android:layout="@layout/preference_with_margin" android:title="Increase Tripod Capture Time" android:key="pref_max_tripod" android:summary="Increases the frame count and the exposure time if steadily mounted" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/white_balance_auto" android:layout="@layout/preference_with_margin" android:title="AI AWB in Night Sight" android:key="pref_nit_aiwb" android:summary="Pixel 3 default setting is on" android:defaultValue="false" />
+        </PreferenceCategory>
+        <PreferenceCategory android:layout="@layout/preference_category_layout" android:title="Experimental" android:key="pref_category_general">
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/settings_outline" android:layout="@layout/preference_with_margin" android:title="Manual Exposure Control" android:key="pref_shutter_key" android:summary="Enable manual shutter speed slider" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/settings_outline" android:layout="@layout/preference_with_margin" android:title="Manual ISO Control" android:key="pref_iso_key" android:summary="Enable manual sensitivity slider (VERY EXPERIMENTAL)" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/details" android:layout="@layout/preference_with_margin" android:title="Super Res Always On" android:key="pref_always_sabre" android:summary="@string/pref_sabre_summary" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/settings_outline" android:layout="@layout/preference_with_margin" android:title="Display P3 Color Space" android:key="pref_displayp3_key" android:summary="P3 ICC" android:defaultValue="false" />
+        </PreferenceCategory>
+        <PreferenceCategory android:layout="@layout/preference_category_layout" android:title="Pixel 3 Features" android:key="pref_category_general">
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/account_plus_outline" android:layout="@layout/preference_with_margin" android:title="Synthetic Fill Flash" android:key="pref_sff_key" android:summary="Synthetic Fill Flash brightens faces when there is a strong backlight" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/white_balance_auto" android:layout="@layout/preference_with_margin" android:title="AI AWB in HDR Enhanced" android:key="pref_enh_aiwb" android:summary="Pixel 3 default setting is on" android:defaultValue="false" />
+            <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/image_filter_center_focus_weak" android:layout="@layout/preference_with_margin" android:title="Focus Tracking" android:key="pref_track_focus" android:summary="Follows the subject you tap to focus on" android:defaultValue="false" />
+        </PreferenceCategory>
+    </PreferenceScreen>
     <PreferenceCategory android:title="@string/photo" android:key="pref_category_resolution_camera">
         <ListPreference android:icon="@drawable/quantum_gm_ic_photo_camera_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/setting_back_camera_photo" android:key="pref_camera_picturesize_back_key" android:summary="%s" android:defaultValue="@string/pref_camera_picturesize_default" android:entryValues="@array/pref_camera_picturesize_entryvalues" />
         <ListPreference android:icon="@drawable/quantum_gm_ic_photo_camera_front_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/setting_front_camera_photo" android:key="pref_camera_picturesize_front_key" android:summary="%s" android:defaultValue="@string/pref_camera_picturesize_default" android:entryValues="@array/pref_camera_picturesize_entryvalues" />
@@ -26,7 +52,20 @@
         <ListPreference android:icon="@drawable/tmp_ic_video_camera_front_gm_grey" android:layout="@layout/preference_with_margin" android:title="@string/setting_front_camera_video" android:key="pref_video_quality_front_key" android:summary="%s" android:defaultValue="@string/pref_video_quality_large" android:entryValues="@array/pref_video_quality_entryvalues" />
         <com.google.android.apps.camera.legacy.app.settings.ManagedSwitchPreference android:icon="@drawable/quantum_gm_ic_video_stable_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/pref_video_stabilization" android:key="pref_video_stabilization_key" android:defaultValue="true" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/setting_google_help_and_feedback" android:key="pref_category_help_and_feedback">
+    <PreferenceCategory android:title="Misc" android:key="pref_category_help_and_feedback">
+        <PreferenceScreen android:icon="@drawable/ic_about_24" android:layout="@layout/preference_with_margin" android:title="About" android:key="pref_category_about">
+            <Preference android:icon="@drawable/about" android:enabled="false" android:layout="@layout/preference_about" android:key="pref_about_info" />
+            <Preference android:enabled="false" android:layout="@layout/preference_about_info" android:title="P3 Mod" android:key="pref_category_about_icon" android:summary="v12.3" />
+            <Preference android:layout="@layout/preference_updates" android:title="Based on Google Camera" android:key="pref_category_about_based" android:summary="6.2.030.244457635">
+                <intent android:action="android.intent.action.VIEW" android:data="https://play.google.com/store/apps/details?id=com.google.android.GoogleCamera" />
+            </Preference>
+            <Preference android:layout="@layout/preference_updates" android:title="Thanks" android:key="pref_category_about_dev" android:summary="Arnova8G2, back.rider, BSG, Charles_L, eszdman, fu24, KoopahTManiac, miniuser, namok, san1ty, savitar, scrubber, SerJo87, Toylan009, Urnyx05, xtrme">
+                <intent android:action="android.intent.action.VIEW" android:data="https://www.celsoazevedo.com/files/android/google-camera/developers/" />
+            </Preference>
+            <Preference android:layout="@layout/preference_updates" android:title="Check for Updates" android:key="pref_category_about_updates" android:summary="Updates/Changelog">
+                <intent android:action="android.intent.action.VIEW" android:data="https://www.celsoazevedo.com/files/android/google-camera/dev-cstark27/" />
+            </Preference>
+        </PreferenceScreen>
         <Preference android:icon="@drawable/quantum_gm_ic_feedback_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/setting_google_feedback" android:key="pref_launch_feedback" />
         <Preference android:icon="@drawable/quantum_gm_ic_help_outline_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/setting_google_help" android:key="pref_launch_help" />
         <PreferenceScreen android:icon="@drawable/quantum_gm_ic_developer_mode_gm_grey_24" android:layout="@layout/preference_with_margin" android:title="@string/pref_developer_settings" android:key="pref_category_developer" />

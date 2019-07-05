@@ -114,11 +114,13 @@
 
     iget-object p5, p0, Lewd;->d:Lkib;
 
-    iget-object p5, p5, Lkib;->a:Lmpj;
+    #iget-object p5, p5, Lkib;->a:Lmpj;
 
-    invoke-virtual {p5}, Lmpj;->b()Z
+    #invoke-virtual {p5}, Lmpj;->b()Z
 
-    move-result p5
+    #move-result p5
+	
+	const p5, 0x0	#p3mod fix Portrait hang for Pixel 1
 
     const/4 p6, 0x0
 
@@ -139,6 +141,10 @@
     move-result p5
 
     if-eqz p5, :cond_0
+	
+	sget p5, Lcbc;->sd821:I
+
+    if-nez p5, :cond_100
 
     sget-object p5, Lgqa;->b:Lgqa;
 
@@ -428,6 +434,7 @@
 
     if-eqz p5, :cond_9
 
+	:cond_100
     sget-object p3, Lewd;->b:Ljava/lang/String;
 
     const-string p5, "Selected Pixel Portrait Zsl Hdr No PD OneCamera configuration."

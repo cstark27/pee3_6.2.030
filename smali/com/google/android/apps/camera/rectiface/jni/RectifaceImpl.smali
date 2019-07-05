@@ -421,15 +421,21 @@
 
     iget-object v0, p0, Lcom/google/android/apps/camera/rectiface/jni/RectifaceImpl;->c:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->e()Z
+    #invoke-virtual {v0}, Lmpj;->e()Z
 
-    move-result v0
+    #move-result v0
+	
+	const-string v0, "pref_sff_key"		#p3mod synthetic fill flash toggle
+	
+	invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
+	move-result v0
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
@@ -944,20 +950,20 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/google/googlex/gcam/StaticMetadata;->getLens_facing()I
+    #invoke-virtual {v1}, Lcom/google/googlex/gcam/StaticMetadata;->getLens_facing()I
 
-    move-result v1
+    #move-result v1
 
-    if-ne v1, v2, :cond_6
+    #if-ne v1, v2, :cond_6
 
-    const/4 v1, 0x1
+    const/4 v1, 0x1		#p3mod disables face warping
 
-    goto :goto_2
+    #goto :goto_2
 
     :cond_6
-    nop
+    #nop
 
-    const/4 v1, 0x0
+    #const/4 v1, 0x0
 
     :goto_2
     invoke-direct {v0, v1}, Lcom/google/android/apps/camera/rectiface/jni/RectifaceImpl;->b(Z)Z
@@ -1359,20 +1365,20 @@
 
     move-result-object v15
 
-    invoke-virtual {v15}, Lcom/google/googlex/gcam/StaticMetadata;->getLens_facing()I
+    #invoke-virtual {v15}, Lcom/google/googlex/gcam/StaticMetadata;->getLens_facing()I
 
-    move-result v15
+    #move-result v15
 
-    if-ne v15, v8, :cond_3
+    #if-ne v15, v8, :cond_3
 
-    const/4 v15, 0x1
+    const/4 v15, 0x1	#p3mod disables face warping
 
-    goto :goto_0
+    #goto :goto_0
 
     :cond_3
-    nop
+    #nop
 
-    const/4 v15, 0x0
+    #const/4 v15, 0x0
 
     :goto_0
     invoke-direct {v0, v15}, Lcom/google/android/apps/camera/rectiface/jni/RectifaceImpl;->b(Z)Z

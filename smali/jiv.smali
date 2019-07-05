@@ -31,24 +31,30 @@
     iget-object v1, v0, Ljis;->a:Lkib;
 
     iget-object v1, v1, Lkib;->a:Lmpj;
-
-    invoke-virtual {v1}, Lmpj;->b()Z
-
+	
+	const-string v1, "pref_4k_timelapse"	#p3mod 4k timelapse, help by Arnova
+	
+	invoke-static {v1}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
     move-result v1
+
+    #invoke-virtual {v1}, Lmpj;->b()Z
+
+    #move-result v1
 
     if-nez v1, :cond_1
 
-    iget-object v0, v0, Ljis;->a:Lkib;
+    #iget-object v0, v0, Ljis;->a:Lkib;
 
-    iget-object v0, v0, Lkib;->a:Lmpj;
+    #iget-object v0, v0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->c()Z
+    #invoke-virtual {v0}, Lmpj;->c()Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
-    goto :goto_0
+    #goto :goto_0
 
     :cond_0
     sget-object v0, Llto;->g:Llto;
@@ -57,7 +63,7 @@
 
     :cond_1
     :goto_0
-    sget-object v0, Llto;->f:Llto;
+    sget-object v0, Llto;->h:Llto;
 
     :goto_1
     nop

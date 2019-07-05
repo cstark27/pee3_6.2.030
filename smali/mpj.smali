@@ -320,9 +320,25 @@
     .locals 6
 
     sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
+	
+	const-string v1, "Google"
+	
+	invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
+    move-result v1
+
+    if-nez v1, :cond_100	#p3mod if Google device skip forcing
+	
+	const-string v0, "Google"
+	
+	const-string v1, "sailfish"
+	
+	goto :goto_100
+
+	:cond_100
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
+	:goto_100
     sget-object v2, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
 
     invoke-static {v0}, Lmpj;->a(Ljava/lang/String;)Ljava/lang/String;

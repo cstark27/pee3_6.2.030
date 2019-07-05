@@ -9,17 +9,47 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
     const-string v0, "IntentHelper"
 
     invoke-static {v0}, Lpra;->a(Ljava/lang/String;)Ljava/lang/String;
+	
+	const-string v0, "pref_defmode_key"		#p3mod - default mode
 
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	const v1, 0x0
+	
+	if-eq v0, v1, :cond_camera
+	
+	const v1, 0x1
+	
+	if-eq v0, v1, :cond_portrait
+	
+	const v1, 0x2
+	
+	if-eq v0, v1, :cond_night
+
+	:cond_camera
     sget-object v0, Lkgq;->b:Lkgq;
 
+	:goto_100
     sput-object v0, Lbcw;->a:Lkgq;
 
     return-void
+	
+	:cond_portrait
+    sget-object v0, Lkgq;->h:Lkgq;
+	
+	goto :goto_100
+	
+	:cond_night
+    sget-object v0, Lkgq;->n:Lkgq;
+	
+	goto :goto_100
 .end method
 
 .method public static a(Landroid/net/Uri;)Landroid/content/Intent;
@@ -490,7 +520,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_6
 
     invoke-static {p0}, Lbcw;->f(Landroid/content/Intent;)Z
 
@@ -521,6 +551,22 @@
 
     if-nez v1, :cond_2
 
+    const-string v1, "android.media.action.PORTRAIT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_100
+
+    const-string v1, "android.media.action.NIGHTSIGHT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_101
+	
     const-string v1, "android.media.action.IMAGE_CAPTURE_SECURE"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -551,7 +597,17 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_100
+    sget-object v0, Lkgq;->h:Lkgq;
+
+    goto :goto_2
+
+    :cond_101
+    sget-object v0, Lkgq;->n:Lkgq;
+
+    goto :goto_2
+
+    :cond_6
     :goto_1
     sget-object v0, Lkgq;->c:Lkgq;
 

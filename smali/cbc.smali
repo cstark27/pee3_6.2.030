@@ -3,6 +3,17 @@
 .source "PG"
 
 
+# static fields
+.field public static sd710:I
+
+.field public static sd821:I
+
+.field public static sd835:I
+
+.field public static sd845:I
+
+
+
 # instance fields
 .field public final a:Landroid/content/ContentResolver;
 

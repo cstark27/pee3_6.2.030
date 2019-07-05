@@ -55,17 +55,17 @@
 
     invoke-virtual {v0, p4, p0}, Lblb;->a(Llsg;Ljava/lang/Object;)V
 
-    iget-object p0, p5, Lkib;->a:Lmpj;
+    #iget-object p0, p5, Lkib;->a:Lmpj;		#p3mod HDR+ reset for pixel 1
 
-    invoke-virtual {p0}, Lmpj;->b()Z
+    #invoke-virtual {p0}, Lmpj;->b()Z
 
-    move-result p0
+    #move-result p0
 
-    if-eqz p0, :cond_0
+    #if-eqz p0, :cond_0
 
-    sget-object p0, Lhhb;->b:Lhhb;
+    #sget-object p0, Lhhb;->b:Lhhb;
 
-    invoke-virtual {v0, p1, p0}, Lblb;->a(Llsg;Ljava/lang/Object;)V
+    #invoke-virtual {v0, p1, p0}, Lblb;->a(Llsg;Ljava/lang/Object;)V
 
     :cond_0
     return-object v0
@@ -1046,6 +1046,24 @@
 
 .method public static z(Litq;)Llsg;
     .locals 2
+	
+	const-string v0, "pref_sff_key"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Litq;->a(Ljava/lang/String;Z)Llsg;
+
+    const-string v0, "pref_enh_aiwb"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Litq;->a(Ljava/lang/String;Z)Llsg;
+	
+	const-string v0, "pref_nit_aiwb"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Litq;->a(Ljava/lang/String;Z)Llsg;
 
     const-string v0, "pref_camera_enable_iris"
 

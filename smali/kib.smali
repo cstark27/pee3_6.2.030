@@ -209,32 +209,34 @@
 .method public final g()Z
     .locals 1
 
-    iget-object v0, p0, Lkib;->a:Lmpj;
+    #iget-object v0, p0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
 
-    if-nez v0, :cond_1
+    #if-nez v0, :cond_1
 
-    iget-object v0, p0, Lkib;->a:Lmpj;
+    #iget-object v0, p0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->e()Z
+    #invoke-virtual {v0}, Lmpj;->e()Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
-    goto :goto_0
+    #goto :goto_0
 
-    :cond_0
-    const/4 v0, 0x0
+    #:cond_0
+    #const/4 v0, 0x0
 
-    return v0
+    #return v0
 
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
+    #:cond_1
+    #:goto_0
+	const-string v0, "p3mod master enable for synthetic fill flash"
+	
+    const/4 v0, 0x1		#p3mod master enable for synthetic fill flash
 
     return v0
 .end method
@@ -242,32 +244,34 @@
 .method public final h()Z
     .locals 1
 
-    iget-object v0, p0, Lkib;->a:Lmpj;
+    #iget-object v0, p0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
 
-    if-nez v0, :cond_1
+    #if-nez v0, :cond_1
 
-    iget-object v0, p0, Lkib;->a:Lmpj;
+    #iget-object v0, p0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->e()Z
+    #invoke-virtual {v0}, Lmpj;->e()Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
-    goto :goto_0
+    #goto :goto_0
 
-    :cond_0
-    const/4 v0, 0x0
+    #:cond_0
+    #const/4 v0, 0x0
 
-    return v0
+    #return v0
 
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
+    #:cond_1
+    #:goto_0
+	const-string v0, "p3mod night sight focus button"
+	
+    const/4 v0, 0x1		#p3mod night sight focus button
 
     return v0
 .end method

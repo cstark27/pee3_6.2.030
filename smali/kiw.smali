@@ -68,6 +68,8 @@
     iget-object v0, v0, Lkib;->a:Lmpj;
 
     iget-boolean v1, v0, Lmpj;->f:Z
+	
+	const v1, 0x1	#p3mod exif fix
 
     if-nez v1, :cond_0
 
@@ -80,7 +82,9 @@
     :cond_0
     sget v0, Lcom/google/android/libraries/camera/exif/ExifInterface;->e:I
 
-    const-string v1, "QCAM-AA"
+    #const-string v1, "QCAM-AA"
+	
+	sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Lcom/google/android/libraries/camera/exif/ExifInterface;->a(ILjava/lang/Object;)Lmbx;
 
@@ -89,6 +93,8 @@
     invoke-virtual {p1, v0}, Lcom/google/android/libraries/camera/exif/ExifInterface;->a(Lmbx;)Lmbx;
 
     sget v0, Lcom/google/android/libraries/camera/exif/ExifInterface;->d:I
+	
+	sget-object v1, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Lcom/google/android/libraries/camera/exif/ExifInterface;->a(ILjava/lang/Object;)Lmbx;
 

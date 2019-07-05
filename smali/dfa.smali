@@ -14,6 +14,8 @@
 
 .field private static final c:Z
 
+.field public static fixWideAngle:I
+
 
 # instance fields
 .field public final a:Lcom/google/googlex/gcam/hdrplus/MetadataConverter;
@@ -699,6 +701,21 @@
 
     move-result-object v3
 
+	const-string v10, "pref_shutter_key"	#p3mod - exposure slider @savitar
+
+    invoke-static {v10}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v10
+
+	if-eqz v10, :cond_100
+
+	invoke-static {v3}, Ldeeznutz/lol;->setShutter_AE(Ljava/lang/Long;)V	#pro mode
+
+    invoke-static {}, Ldeeznutz/lol;->getEXPTGT()Ljava/lang/Long;
+
+    move-result-object v3
+
+	:cond_100
     invoke-virtual {p2, v0, v3}, Lgrj;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Lgrj;
 
     sget-boolean v0, Ldfa;->c:Z
@@ -760,6 +777,21 @@
 
     move-result-object v8
 
+	const-string v10, "pref_iso_key"	#p3mod - iso slider @savitar
+
+    invoke-static {v10}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v10
+
+	if-eqz v10, :cond_200
+
+    invoke-static {v8}, Ldeeznutz/lol;->setIsoAe(Ljava/lang/Integer;)V	#pro mode
+
+    invoke-static {}, Ldeeznutz/lol;->getISOTGT()Ljava/lang/Integer;
+
+    move-result-object v8
+
+	:cond_200
     invoke-virtual {p2, v3, v8}, Lgrj;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Lgrj;
 
     sget-boolean v3, Ldfa;->c:Z

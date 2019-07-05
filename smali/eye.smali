@@ -73,11 +73,25 @@
     iget-object v4, v1, Lezx;->d:Lhfn;
 
     iget-object v5, v1, Lezx;->f:Lgof;
+	
+	const-string v6, "pref_portenh_bsg"		#p3mod - hdr enhanced for portrait
 
+    invoke-static {v6}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+	move-result v6
+
+	if-eqz v6, :cond_100
+
+	move-object v12, v4
+
+	goto :goto_100
+
+	:cond_100
     invoke-virtual {v3, v2, v4, v5}, Lezp;->a(Lded;Lhfn;Lgof;)Lhfn;
 
     move-result-object v12
 
+	:goto_100
     new-instance v2, Leyz;
 
     iget-object v3, v1, Lezx;->a:Llzk;
@@ -93,8 +107,10 @@
     move-object v8, v12
 
     move-object v9, v11
+	
+	move-object v10, v12		#comment out if using next line
 
-    move-object v10, v12
+    #iget-object v10, v1, Lezx;->d:Lhfn;		#p3mod - hdr enhanced from top bar in portrait from BSG
 
     invoke-direct/range {v6 .. v12}, Leyt;-><init>(Llrm;Lhfn;Lhfn;Lhfn;Lhfn;Lhfn;)V
 

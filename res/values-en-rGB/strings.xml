@@ -247,7 +247,7 @@ Clean your lens for better photo quality."</string>
     <string name="location">Location</string>
     <string name="lock_closed_label">Unlock AE/AF</string>
     <string name="lock_open_label">Lock AE/AF</string>
-    <string name="longexposure_suggestion_text">Try Night Sight</string>
+    <string name="longexposure_suggestion_text">Night Sight</string>
     <string name="maker">Maker</string>
     <string name="manual">Manual</string>
     <string name="max_face_announcement">At least %1$d faces.</string>

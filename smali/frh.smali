@@ -317,11 +317,11 @@
 
     invoke-direct {v0, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    new-instance v2, Lfrk;
+    #new-instance v2, Lfrk;		#do not show location toast at first launch, to fix toast for libloader
 
-    invoke-direct {v2, p0}, Lfrk;-><init>(Lfrh;)V
+    #invoke-direct {v2, p0}, Lfrk;-><init>(Lfrh;)V
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    #invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     iget-object v0, p0, Lfrh;->e:Llsg;

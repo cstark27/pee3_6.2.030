@@ -610,7 +610,7 @@
     :goto_0
     invoke-virtual {v13}, Lkib;->h()Z
 
-    move-result v37
+    move-result v37		#p3mod night sight focus button
 
     move-object v2, v0
 

@@ -160,12 +160,14 @@
     if-nez v0, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lkib;->a:Lmpj;
+    #iget-object v0, p0, Lkib;->a:Lmpj;
 
-    invoke-virtual {v0}, Lmpj;->d()Z
+    #invoke-virtual {v0}, Lmpj;->d()Z
 
-    move-result v0
+    #move-result v0
 
+	const v0, 0x1	#p3mod enable portrait mode
+	
     if-nez v0, :cond_2
 
     iget-object p0, p0, Lkib;->a:Lmpj;

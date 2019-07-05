@@ -420,17 +420,171 @@
     invoke-direct {v0}, Lcom/google/googlex/gcam/StaticMetadata;-><init>()V
 
     sget-object v1, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
+	
+	const-string v3, "Google"
+	
+	invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_100	#if not Google device
 
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setMake(Ljava/lang/String;)V
 
     sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;
+	
+	goto :goto_100
+	
+	:cond_100	#basic support
+	const-string v1, "Google"
+	
+	invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setMake(Ljava/lang/String;)V
+	
+	sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;
+	
+	invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setModel(Ljava/lang/String;)V
+	
+	const-string v1, "bonito"
+	
+	invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setDevice(Ljava/lang/String;)V
+	
+	goto :goto_200
 
+	:goto_100
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setModel(Ljava/lang/String;)V
 
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setDevice(Ljava/lang/String;)V
 
+	:goto_200
+	sget-object v1, Landroid/os/Build;->BOARD:Ljava/lang/String;
+	
+	const-string v3, "sailfish"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9
+
+    const-string v3, "marlin"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9
+
+    const-string v3, "walleye"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    const-string v3, "taimen"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    const-string v3, "blueline"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    const-string v3, "crosshatch"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    const-string v3, "sargo"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string v3, "bonito"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+	
+	:cond_9
+    const/4 v1, 0x1
+
+    sput v1, Lcbc;->sd821:I
+
+    const/4 v1, 0x0
+
+    sput v1, Lcbc;->sd835:I
+
+    sput v1, Lcbc;->sd845:I
+
+    sput v1, Lcbc;->sd710:I
+
+    goto :goto_101
+
+    :cond_a
+    const/4 v1, 0x1
+
+    sput v1, Lcbc;->sd835:I
+
+    const/4 v1, 0x0
+
+    sput v1, Lcbc;->sd821:I
+
+    sput v1, Lcbc;->sd845:I
+
+    sput v1, Lcbc;->sd710:I
+
+    goto :goto_101
+
+    :cond_b
+    const/4 v1, 0x1
+
+    sput v1, Lcbc;->sd845:I
+
+    const/4 v1, 0x0
+
+    sput v1, Lcbc;->sd835:I
+
+    sput v1, Lcbc;->sd821:I
+
+    sput v1, Lcbc;->sd710:I
+
+    goto :goto_101
+
+    :cond_c
+    const/4 v1, 0x1
+
+    sput v1, Lcbc;->sd710:I
+
+    const/4 v1, 0x0
+
+    sput v1, Lcbc;->sd835:I
+
+    sput v1, Lcbc;->sd821:I
+
+    sput v1, Lcbc;->sd845:I
+
+    goto :goto_101
+
+    :goto_101
     invoke-static {}, Lcom/google/googlex/gcam/GcamModule;->GetVersion()Ljava/lang/String;
 
     move-result-object v1
@@ -488,6 +642,8 @@
     invoke-static {v1}, Lcom/google/googlex/gcam/hdrplus/MetadataConverter;->convertToLensFacing(Lmmt;)I
 
     move-result v1
+	
+	sput v1, Lcom/custom/extras;->LensFacing:I
 
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setLens_facing(I)V
 

@@ -1666,6 +1666,14 @@
     const/4 v3, 0x1
 
     :goto_0
+	#sget-object v8, Lkgq;->n:Lkgq;		#p3mod - hdr enhanced in portrait from BSG
+
+    #if-eq v0, v8, :cond_3
+	
+	#sget-object v8, Lkgq;->h:Lkgq;
+
+    #if-eq v0, v8, :cond_3
+	
     sget-object v8, Lkgq;->b:Lkgq;
 
     if-ne v0, v8, :cond_4

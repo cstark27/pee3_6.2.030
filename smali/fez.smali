@@ -342,7 +342,15 @@
 
     iget-object v0, p0, Lfez;->t:Ljava/util/List;
 
-    const-string v1, "pref_category_developer"
+    const-string v1, "pref_category_developer"	#p3mod comment out to show developer settings
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z	#this one too
+	
+	const-string v1, "pref_launch_help"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	
+	const-string v1, "pref_launch_feedback"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -357,12 +365,14 @@
     :cond_6
     iget-object v0, p0, Lfez;->n:Lcbf;
 
-    sget-object v1, Lcbe;->e:Lcbh;
+    #sget-object v1, Lcbe;->e:Lcbh;
 
-    invoke-interface {v0, v1}, Lcbf;->b(Lcbh;)Z
+    #invoke-interface {v0, v1}, Lcbf;->b(Lcbh;)Z
 
-    move-result v0
+    #move-result v0
 
+	const v0, 0x1	#p3mod enable hevc toggle
+	
     if-nez v0, :cond_7
 
     iget-object v0, p0, Lfez;->t:Ljava/util/List;
@@ -372,12 +382,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_7
-    iget-object v0, p0, Lfez;->k:Lgka;
+    #iget-object v0, p0, Lfez;->k:Lgka;
 
-    invoke-interface {v0}, Lgka;->d()Z
+    #invoke-interface {v0}, Lgka;->d()Z
 
-    move-result v0
+    #move-result v0
 
+	const v0, 0x1	#p3mod enable sound setting
+	
     if-nez v0, :cond_8
 
     iget-object v0, p0, Lfez;->s:Llsg;

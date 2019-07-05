@@ -654,7 +654,7 @@
     invoke-virtual {v6}, Lnyp;->b()Z
 
     move-result v6
-
+	
     new-instance v12, Lcom/google/googlex/gcam/ShotParams;
 
     invoke-direct {v12}, Lcom/google/googlex/gcam/ShotParams;-><init>()V
@@ -708,9 +708,26 @@
 
     iget-boolean v5, v5, Lmpi;->e:Z
 
-    if-nez v5, :cond_1
+    #if-nez v5, :cond_1
 
-    invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setIcc_output_profile_override(I)V
+	const-string v5, "pref_displayp3_key"	#p3mod srgb or display p3 profile
+	
+	invoke-static {v5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
+    move-result v5
+	
+	if-eqz v5, :cond_301
+	
+	:cond_300
+	const v5, 0x2	#p3
+	
+	goto :goto_300
+	
+	:cond_301
+	const v5, 0x1	#srgb
+	
+	:goto_300
+    invoke-virtual {v12, v5}, Lcom/google/googlex/gcam/ShotParams;->setIcc_output_profile_override(I)V
 
     :cond_1
     invoke-static/range {p6 .. p6}, Ldfa;->a(Lhha;)I
@@ -743,21 +760,25 @@
 
     iget-object v4, v4, Lkib;->a:Lmpj;
 
-    invoke-virtual {v4}, Lmpj;->d()Z
+    #invoke-virtual {v4}, Lmpj;->d()Z
 
+	const-string v4, "pref_enh_aiwb"	#p3mod enables AI AWB for HDR Enhanced
+	
+	invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
     move-result v4
 
     if-nez v4, :cond_4
 
-    iget-object v4, v0, Ldfx;->f:Lkib;
+    #iget-object v4, v0, Ldfx;->f:Lkib;
 
-    iget-object v4, v4, Lkib;->a:Lmpj;
+    #iget-object v4, v4, Lkib;->a:Lmpj;
 
-    invoke-virtual {v4}, Lmpj;->e()Z
+    #invoke-virtual {v4}, Lmpj;->e()Z
 
-    move-result v4
+    #move-result v4
 
-    if-nez v4, :cond_4
+    #if-nez v4, :cond_4
 
     :cond_2
     iget-object v4, v0, Ldfx;->h:Ldgr;
@@ -771,7 +792,13 @@
     goto :goto_0
 
     :cond_3
-    nop
+	const-string v4, "pref_nit_aiwb"	#p3mod AI AWB for night sight
+	
+	invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
+	move-result v4
+	
+	goto :goto_0
 
     :cond_4
     const/4 v4, 0x1
@@ -818,6 +845,14 @@
     const/4 v6, 0x0
 
     :goto_1
+	const-string v7, "pref_always_sabre"
+
+    invoke-static {v7}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v7
+	
+	if-nez v7, :cond_200
+	
     iget-object v7, v0, Ldfx;->f:Lkib;
 
     invoke-static {v7}, Lded;->a(Lkib;)Z
@@ -838,6 +873,7 @@
 
     if-ltz v4, :cond_7
 
+	:cond_200
     const/4 v4, 0x1
 
     goto :goto_2
@@ -969,9 +1005,9 @@
     invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setMerge_method_override(I)V
 
     :cond_d
-    iget-object v4, v0, Ldfx;->s:Lcvv;
+    const-string v4, "pref_max_tripod"
 
-    invoke-static {v4}, Lded;->b(Lcvv;)Z
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
     move-result v4
 
