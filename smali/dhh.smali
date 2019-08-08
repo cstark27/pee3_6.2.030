@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public final a(Lmqc;I)Ldhg;
-    .locals 2
+    .locals 3
 
     new-instance v0, Ldhg;
 
@@ -31,6 +31,17 @@
 
     move-result-object p2
 
+	const-string v2, "pref_hot_pixel"	#p3mod
+
+    invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p2, v2}, Lcom/google/googlex/gcam/Tuning;->setSuppress_hot_pixels(Z)V
+
+    :cond_0
     invoke-direct {v0, p2, p1}, Ldhg;-><init>(Lcom/google/googlex/gcam/Tuning;Lmqc;)V
 
     return-object v0

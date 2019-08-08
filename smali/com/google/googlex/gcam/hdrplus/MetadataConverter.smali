@@ -426,6 +426,8 @@
 	invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v3
+	
+	sput v3, Lcom/custom/extras;->isGoogle:I
 
     if-eqz v3, :cond_100	#if not Google device
 
@@ -451,9 +453,13 @@
 	goto :goto_200
 
 	:goto_100
+	#const-string v1, "Pixel 1"
+	
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setModel(Ljava/lang/String;)V
 
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
+
+	#const-string v1, "sailfish"
 
     invoke-virtual {v0, v1}, Lcom/google/googlex/gcam/StaticMetadata;->setDevice(Ljava/lang/String;)V
 
@@ -3928,6 +3934,17 @@
 .method public getExposureCompensationStops(I)F
     .locals 3
 
+	#const-string v0, "pref_evcomp_key"
+
+    #invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+	#move-result v0
+	
+	#if-eqz v0, :cond_0
+	
+	#move p1, v0
+
+	#:cond_0
     iget-object v0, p0, Lcom/google/googlex/gcam/hdrplus/MetadataConverter;->characteristics:Lmmb;
 
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_COMPENSATION_STEP:Landroid/hardware/camera2/CameraCharacteristics$Key;

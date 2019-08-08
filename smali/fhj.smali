@@ -38,6 +38,10 @@
 
 .method public final c()V
     .locals 3
+	
+	const v0, 0x1
+	
+	sput v0, Lcom/custom/extras;->PortraitMode:I
 
     sget-object v0, Lfhb;->a:Ljava/lang/String;
 
@@ -180,6 +184,10 @@
 
 .method public final d()V
     .locals 3
+	
+	const v0, 0x0
+	
+	sput v0, Lcom/custom/extras;->PortraitMode:I
 
     sget-object v0, Lfhb;->a:Ljava/lang/String;
 

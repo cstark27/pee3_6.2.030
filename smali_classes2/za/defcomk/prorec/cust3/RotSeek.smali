@@ -814,7 +814,7 @@
 
     iget v0, p0, Lza/defcomk/prorec/cust3/RotSeek;->viewHeight:I
 
-    div-int/lit8 v0, v0, 0x10
+    div-int/lit8 v0, v0, 0xc
 
     iput v0, p0, Lza/defcomk/prorec/cust3/RotSeek;->itemHeight:I
 
@@ -930,11 +930,11 @@
 
     move-result v0
 
-    const/16 v4, 0x28
+    const/16 v4, 0xb
 
     if-gt v0, v4, :cond_1
 
-    const/16 v4, -0x28
+    const/16 v4, -0xb
 
     if-ge v0, v4, :cond_2
 

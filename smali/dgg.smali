@@ -173,13 +173,7 @@
 
     invoke-virtual {v2, v1}, Lcom/google/googlex/gcam/InitParams;->setExecute_finish_on(I)V
 	
-	    sget-object v4, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
-	
-		const-string v5, "Google"
-		
-		invoke-virtual {v4, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-		move-result v4
+	    sget v4, Lcom/custom/extras;->isGoogle:I
 
 		if-eqz v4, :cond_2	#p3mod if not Google device, dont use Hexagon
 

@@ -329,7 +329,48 @@
     iget-object v8, v8, Lgri;->b:Ljava/lang/Object;
 
     invoke-interface {v5, v9, v8}, Lmpx;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
+	
+	invoke-static {}, Ldeeznutz/lol;->getFocusMode()Ljava/lang/Integer;	#pro mode
 
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
+
+    const/4 v9, 0x1
+
+    if-lt v8, v9, :cond_100
+
+    sget-object v9, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
+
+    const/4 v8, 0x0
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-interface {v5, v9, v8}, Lmpx;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
+
+    sget-object v9, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
+
+    const/4 v8, 0x0
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    invoke-interface {v5, v9, v8}, Lmpx;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
+
+    invoke-static {}, Ldeeznutz/lol;->getFocusDistance()Ljava/lang/Float;
+
+    move-result-object v8
+
+    sget-object v9, Landroid/hardware/camera2/CaptureRequest;->LENS_FOCUS_DISTANCE:Landroid/hardware/camera2/CaptureRequest$Key;
+
+    invoke-interface {v5, v9, v8}, Lmpx;->a(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
+
+    :cond_100	#pro mode
     goto :goto_7
 
     :cond_8

@@ -607,11 +607,11 @@
 
     #move-result v2
 	
-	const-string v2, "pref_focus_key"	#p3mod focus tracking for video...turn off if turned off in settings, otherwise disable only for pixel 1 & 2
+	#const-string v2, "pref_focus_key"	#p3mod focus tracking for video...turn off if turned off in settings, otherwise disable only for pixel 1 & 2
 	
-	invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	#invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
 
-    move-result v2
+    #move-result v2
 	
 	#if-eqz v2, :cond_100
 	

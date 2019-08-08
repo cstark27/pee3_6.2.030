@@ -56,9 +56,62 @@
     const/4 v2, 0x1
 
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+	
+	sget v0, Lcom/custom/extras;->isGoogle:I
 
-    const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s,4s,8s,12s,30s"
+    if-eqz v0, :cond_all	#if not Google device
+	
+	const-string v0, "pref_shuttermax_key"
 
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	if-eqz v0, :cond_100
+	
+	:cond_all
+    const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s,3s,4s,6s,8s,10s,12s,16s,20s,30s,40s,50s,59s"
+	
+	goto :goto_100
+	
+	:cond_100
+	sget v0, Lcbc;->sd821:I
+
+    if-nez v0, :cond_pixel1
+	
+	sget v0, Lcbc;->sd835:I
+
+    if-nez v0, :cond_pixel2
+	
+	sget v0, Lcbc;->sd710:I
+
+    if-nez v0, :cond_pixel3a
+	
+	sget v0, Lcbc;->sd845:I
+
+    if-nez v0, :cond_pixel3
+	
+	:cond_pixel1
+	const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s"
+	
+	goto :goto_100
+	
+	:cond_pixel2
+    const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s,3s,4s"
+	
+	goto :goto_100
+	
+	:cond_pixel3
+    const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s,3s,4s,6s,8s,10s,12s"
+	
+	goto :goto_100
+	
+	:cond_pixel3a
+    const-string v0, "AUTO,1/4s,1/3s,1/2s,1s,2s,3s,4s,6s,8s,10s"
+	
+	goto :goto_100
+
+	:goto_100
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -812,7 +865,7 @@
 
     iget v0, p0, Lza/defcomk/prorec/cust2/RotSeek;->viewHeight:I
 
-    div-int/lit8 v0, v0, 0x10
+    div-int/lit8 v0, v0, 0xc
 
     iput v0, p0, Lza/defcomk/prorec/cust2/RotSeek;->itemHeight:I
 
@@ -928,11 +981,11 @@
 
     move-result v0
 
-    const/16 v4, 0x28
+    const/16 v4, 0xb
 
     if-gt v0, v4, :cond_1
 
-    const/16 v4, -0x28
+    const/16 v4, -0xb
 
     if-ge v0, v4, :cond_2
 

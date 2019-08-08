@@ -108,9 +108,18 @@
     iget-object v0, p0, Lcbc;->a:Landroid/content/ContentResolver;
 
     const-string v1, "camera:max_imagereader_image_count"
+	
+	const-string v2, "pref_hdreframe_key"
+
+    invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-nez v2, :cond_100
 
     const/16 v2, 0x14
 
+	:cond_100
     invoke-static {v0, v1, v2}, Llof;->a(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
@@ -120,6 +129,14 @@
 
 .method public final d()I
     .locals 3
+	
+	const-string v2, "pref_hdreframe_key"
+
+    invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-nez v2, :cond_100
 
     iget-object v0, p0, Lcbc;->b:Lkib;
 
@@ -150,6 +167,11 @@
     move-result v0
 
     return v0
+	
+	:cond_100
+	const v0, 0xa
+	
+	goto :goto_0
 .end method
 
 .method public final e()I
@@ -167,7 +189,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1	#p3mod - fix pixel 1 crash if not default frames
 
     iget-object v1, p0, Lcbc;->b:Lkib;
 
@@ -245,7 +267,7 @@
 
     move-result v0
 
-    const/4 v1, 0x4
+    const/4 v1, 0x5		#p3mod
 
     if-eqz v0, :cond_0
 
@@ -265,7 +287,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x5
+    const/4 v1, 0x6		#p3mod
 
     :goto_0
     iget-object v0, p0, Lcbc;->a:Landroid/content/ContentResolver;

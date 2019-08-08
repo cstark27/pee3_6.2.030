@@ -1489,7 +1489,26 @@
 
     :cond_6
     nop
+	
+	const-string v2, "pref_shutter_key"
 
+    invoke-static {v2}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v2
+	
+	if-nez v2, :cond_skipdisable
+	
+	const-string v2, "pref_shuttermax_key"
+
+    invoke-virtual {p0, v2}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v2
+	
+    const/4 v1, 0x0
+
+    invoke-virtual {v2, v1}, Lcom/google/android/apps/camera/legacy/app/settings/ManagedSwitchPreference;->setEnabled(Z)V
+
+	:cond_skipdisable
     const-string v2, "pref_category_advanced"
 
     invoke-virtual {p0, v2}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -2091,6 +2110,14 @@
 
     move-result v0
 
+    if-nez v0, :cond_shutter
+	
+	const-string v0, "pref_shuttermax_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-nez v0, :cond_1
 	
 	const-string v0, "pref_defmode_key"
@@ -2102,6 +2129,46 @@
     if-nez v0, :cond_1
 	
 	const-string v0, "pref_iso_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_hot_pixel"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_hdreframe_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_nsframe_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_align_key"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+	
+	const-string v0, "pref_test_key"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2126,6 +2193,7 @@
     if-eqz v0, :cond_2
 	
 	:cond_1
+	:goto_100
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/google/android/apps/camera/legacy/app/settings/CameraSettingsActivity;->isrestart:Z
@@ -2153,9 +2221,40 @@
 
     invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
 	
-	const v0, 0x0
+	goto :goto_100
 	
-	if-eqz v0, :cond_1
+	:cond_shutter
+	const-string v0, "pref_shutter_key"
 	
-	return-void
+	invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v0
+	
+	const-string v2, "pref_shuttermax_key"
+	
+	if-eqz v0, :cond_disable
+	
+	if-nez v0, :cond_enable
+	
+	:cond_enable
+    invoke-virtual {p0, v2}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v2
+	
+    const/4 v1, 0x1
+
+    invoke-virtual {v2, v1}, Lcom/google/android/apps/camera/legacy/app/settings/ManagedSwitchPreference;->setEnabled(Z)V
+
+	goto :goto_100
+	
+	:cond_disable
+    invoke-virtual {p0, v2}, Lfeq;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v2
+	
+    const/4 v1, 0x0
+
+    invoke-virtual {v2, v1}, Lcom/google/android/apps/camera/legacy/app/settings/ManagedSwitchPreference;->setEnabled(Z)V
+
+	goto :goto_100
 .end method

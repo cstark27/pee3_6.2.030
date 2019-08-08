@@ -446,4 +446,5 @@
 	<item type="id" name="seekBar2">false</item>
     <item type="id" name="seekBar3">false</item>
     <item type="id" name="seekBar">false</item>
+	<item type="id" name="toggle" />
 </resources>

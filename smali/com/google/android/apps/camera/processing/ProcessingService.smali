@@ -279,6 +279,10 @@
     invoke-direct {v2, p0}, Lift;-><init>(Lcom/google/android/apps/camera/processing/ProcessingService;)V
 
     invoke-virtual {v1, v2}, Lbkh;->execute(Ljava/lang/Runnable;)V
+	
+	const/4 v1, 0x1
+	
+	sput v1, Lcom/custom/extras;->sHdr_process:I
 
     goto :goto_0
 
@@ -845,6 +849,10 @@
 
     :goto_8
     monitor-exit v1
+	
+	const/4 v0, 0x0
+	
+	sput v0, Lcom/custom/extras;->sHdr_process:I
 
     return-void
 

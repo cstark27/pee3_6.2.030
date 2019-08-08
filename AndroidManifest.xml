@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.google.android.GoogleCamera" platformBuildVersionCode="28" platformBuildVersionName="9">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.GoogleCameraEng" platformBuildVersionCode="28" platformBuildVersionName="9">
     <original-package android:name="com.android.camera2"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -32,7 +32,7 @@
     <uses-feature android:name="com.google.android.feature.GOOGLE_EXPERIENCE" android:required="true"/>
     <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="false"/>
     <uses-feature android:name="android.hardware.camera"/>
-    <application android:allowBackup="true" android:backupAgent="com.google.android.apps.camera.backup.CameraBackupAgent" android:extractNativeLibs="false" android:fullBackupOnly="false" android:hardwareAccelerated="true" android:icon="@mipmap/adaptiveproduct_pixelcamera" android:label="@string/app_name" android:largeHeap="true" android:name="com.google.android.apps.camera.legacy.app.app.CameraApp" android:restoreAnyVersion="true" android:supportsRtl="true" android:theme="@style/Theme.Camera" android:usesCleartextTraffic="false">
+    <application android:allowBackup="true" android:backupAgent="com.google.android.apps.camera.backup.CameraBackupAgent" android:extractNativeLibs="true" android:fullBackupOnly="false" android:hardwareAccelerated="true" android:icon="@mipmap/adaptiveproduct_pixelcamera" android:label="Camera P3" android:largeHeap="true" android:name="com.google.android.apps.camera.legacy.app.app.CameraApp" android:restoreAnyVersion="true" android:supportsRtl="true" android:theme="@style/Theme.Camera" android:usesCleartextTraffic="false">
         <uses-library android:name="com.google.android.gestureservice" android:required="false"/>
         <uses-library android:name="com.google.android.camera2" android:required="false"/>
         <uses-library android:name="com.google.android.camera.experimental2015" android:required="false"/>
@@ -86,7 +86,7 @@
                 <action android:name="android.media.action.STILL_IMAGE_CAMERA"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="com.google.android.GoogleCamera" android:path="/still-image" android:scheme="launch-camera"/>
+                <data android:host="com.google.android.GoogleCameraEng" android:path="/still-image" android:scheme="launch-camera"/>
             </intent-filter>
             <meta-data android:name="com.android.keyguard.layout" android:resource="@layout/keyguard_widget"/>
         </activity-alias>
@@ -131,16 +131,15 @@
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:icon="@drawable/ic_refocus_editor" android:label="@string/refocus_editor_name" android:name="com.google.android.apps.camera.legacy.app.refocus.ViewerActivity" android:resizeableActivity="false" android:theme="@style/Theme.AppCompat.NoActionBar.Fullscreen"/>
         <activity android:name="com.google.android.apps.camera.legacy.app.activity.TrampolineActivity" android:theme="@android:style/Theme.NoDisplay"/>
         <service android:exported="false" android:name="com.google.android.apps.camera.app.silentfeedback.SilentFeedbackService" android:process=":crash_report"/>
-        <provider android:authorities="com.google.android.GoogleCamera.DebugContentProvider" android:exported="true" android:name="com.google.android.apps.camera.debug.contentprovider.DebugContentProvider"/>
         <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIAtBj1ElOYwhIB-X9XDJr91_j0tTe8PPt6pZmnw"/>
         <meta-data android:name="com.android.device.restriction" android:value="           brand=google, deviceName=marlin;           brand=google, deviceName=sailfish;           brand=google, deviceName=walleye;           brand=google, deviceName=taimen;           brand=google, deviceName=blueline;           brand=google, deviceName=crosshatch;           brand=google, deviceName=bonito;           brand=google, deviceName=sargo"/>
-        <provider android:authorities="com.google.android.apps.camera.specialtypes.SpecialTypesProvider" android:exported="true" android:name="com.google.android.apps.camera.contentprovider.CameraContentProvider" android:syncable="false"/>
-        <provider android:authorities="com.google.android.GoogleCamera" android:enabled="true" android:exported="true" android:grantUriPermissions="true" android:multiprocess="false" android:name="com.google.android.apps.camera.legacy.app.settings.CameraSearchIndexablesProvider" android:permission="android.permission.READ_SEARCH_INDEXABLES">
+        <provider android:authorities="com.google.android.apps.camera.specialtypes.SpecialTypesProviderEng" android:exported="true" android:name="com.google.android.apps.camera.contentprovider.CameraContentProvider" android:syncable="false"/>
+        <provider android:authorities="com.google.android.GoogleCameraEng" android:enabled="true" android:exported="true" android:grantUriPermissions="true" android:multiprocess="false" android:name="com.google.android.apps.camera.legacy.app.settings.CameraSearchIndexablesProvider" android:permission="android.permission.READ_SEARCH_INDEXABLES">
             <intent-filter>
                 <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER"/>
             </intent-filter>
         </provider>
-        <provider android:authorities="com.google.android.GoogleCamera.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+        <provider android:authorities="com.google.android.GoogleCamera.fileproviderEng" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/shared_files"/>
         </provider>
         <meta-data android:name="com.google.android.gms.phenotype.registration.xml" android:resource="@xml/phenotype_release"/>

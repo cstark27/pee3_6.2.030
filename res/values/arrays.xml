@@ -158,14 +158,14 @@
     <item type="array" name="APKTOOL_DUMMY_23">false</item>
     <item type="array" name="APKTOOL_DUMMY_24">false</item>
 	<string-array name="pref_pzoom_entries">
-        <item>"Pixel 2 &amp; 3 Default (1.2x)"</item>
+        <item>"Pixel 2 &amp; 3 Default (1.5x)"</item>
         <item>"Pixel 3a Default (2.0x)"</item>
     </string-array>
     <string-array name="pref_pzoom_entryvalues">
         <item>0</item>
         <item>2</item>
     </string-array>
-		<string-array name="pref_lib_entries">
+	<string-array name="pref_lib_entries">
         <item>Contrast1_Noise1 (ZA v3)</item>
         <item>Contrast1_Noise2 (SavEs v1)</item>
 		<item>Contrast1_Noise3 (Fi v4b)</item>
@@ -188,5 +188,85 @@
         <item>0</item>
         <item>1</item>
 		<item>2</item>
+    </string-array>
+	<string-array name="pref_evcomp_entries">
+		<item>-2.0</item>
+		<item>-1.8</item>
+		<item>-1.5</item>
+		<item>-1.2</item>
+		<item>-1.0</item>
+		<item>-0.8</item>
+		<item>-0.5</item>
+		<item>-0.2</item>
+        <item>0.0</item>
+		<item>+0.2</item>
+		<item>+0.5</item>
+		<item>+0.8</item>
+		<item>+1.0</item>
+		<item>+1.2</item>
+		<item>+1.5</item>
+		<item>+1.8</item>
+		<item>+2.0</item>
+    </string-array>
+    <string-array name="pref_evcomp_entryvalues">
+		<item>-20</item>
+		<item>-18</item>
+		<item>-15</item>
+		<item>-12</item>
+		<item>-10</item>
+		<item>-8</item>
+		<item>-5</item>
+		<item>-2</item>
+        <item>0</item>
+		<item>2</item>
+		<item>5</item>
+		<item>8</item>
+		<item>10</item>
+		<item>12</item>
+		<item>15</item>
+		<item>18</item>
+		<item>20</item>
+    </string-array>
+	<string-array name="pref_frame_entries">
+        <item>"Default"</item>
+        <item>2</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>"Up to 35"</item>
+        <item>"Up to 40"</item>
+        <item>"Up to 45"</item>
+    </string-array>
+    <string-array name="pref_frame_entryvalues">
+        <item>0</item>
+        <item>2</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+    </string-array>
+	<string-array name="pref_model_entries">
+        <item>"Default"</item>
+        <item>"Pixel 1"</item>
+        <item>"Pixel 2"</item>
+		<item>"Pixel 3"</item>
+		<item>"Pixel 3a"</item>
+    </string-array>
+    <string-array name="pref_model_entryvalues">
+        <item>0</item>
+        <item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
     </string-array>
 </resources>

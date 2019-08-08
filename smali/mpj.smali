@@ -337,6 +337,14 @@
 
 	:cond_100
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
+	
+	#const-string v1, "sailfish"
+	
+	#const-string v1, "taimen"
+	
+	#const-string v1, "crosshatch"
+	
+	#const-string v1, "bonito"
 
 	:goto_100
     sget-object v2, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;

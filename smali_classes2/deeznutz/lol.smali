@@ -32,9 +32,11 @@
 
 .field private static focusMode:I
 
-.field private static isoVal:I
+.field public static shutterVal:I
 
-.field private static isoVal2:I
+.field public static isoVal2:I
+
+.field public static TrailVal:I
 
 .field private static lol:Ldeeznutz/lol;
 
@@ -706,7 +708,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget v1, Ldeeznutz/lol;->isoVal:I
+    sget v1, Ldeeznutz/lol;->shutterVal:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1789,7 +1791,7 @@
 .method public static getIsoVal()I
     .locals 3
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x2329
 
@@ -1800,7 +1802,7 @@
     return v0
 
     :cond_0
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x232a
 
@@ -1811,7 +1813,7 @@
     return v0
 
     :cond_1
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x232b
 
@@ -1822,7 +1824,7 @@
     return v2
 
     :cond_2
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x270f
 
@@ -1831,7 +1833,7 @@
     return v2
 
     :cond_3
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     mul-int/lit8 v0, v0, 0x4
 
@@ -1846,12 +1848,12 @@
 
     const/4 v4, 0x0
 
-    .line 721
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    .line 723
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
-    packed-switch v0, :pswitch_data_7e
+    packed-switch v0, :pswitch_data_d0
 
-    .line 780
+    .line 796
     new-array v0, v1, [J
 
     invoke-static {v4}, Ldeeznutz/lol;->getShutter(I)J
@@ -1863,7 +1865,7 @@
     :goto_f
     return-object v0
 
-    .line 723
+    .line 725
     :pswitch_10
     new-array v0, v1, [J
 
@@ -1873,7 +1875,7 @@
 
     goto :goto_f
 
-    .line 760
+    .line 762
     :pswitch_17
     new-array v0, v1, [J
 
@@ -1885,7 +1887,7 @@
 
     goto :goto_f
 
-    .line 762
+    .line 764
     :pswitch_20
     new-array v0, v1, [J
 
@@ -1899,7 +1901,7 @@
 
     goto :goto_f
 
-    .line 764
+    .line 766
     :pswitch_2a
     new-array v0, v1, [J
 
@@ -1913,7 +1915,7 @@
 
     goto :goto_f
 
-    .line 766
+    .line 768
     :pswitch_34
     new-array v0, v1, [J
 
@@ -1927,7 +1929,7 @@
 
     goto :goto_f
 
-    .line 768
+    .line 770
     :pswitch_3e
     new-array v0, v1, [J
 
@@ -1941,7 +1943,7 @@
 
     goto :goto_f
 
-    .line 770
+    .line 772
     :pswitch_48
     new-array v0, v1, [J
 
@@ -1955,7 +1957,7 @@
 
     goto :goto_f
 
-    .line 772
+    .line 774
     :pswitch_52
     new-array v0, v1, [J
 
@@ -1969,7 +1971,7 @@
 
     goto :goto_f
 
-    .line 774
+    .line 776
     :pswitch_5c
     new-array v0, v1, [J
 
@@ -1983,7 +1985,7 @@
 
     goto :goto_f
 
-    .line 776
+    .line 778
     :pswitch_67
     new-array v0, v1, [J
 
@@ -1997,7 +1999,7 @@
 
     goto :goto_f
 
-    .line 778
+    .line 780
     :pswitch_72
     new-array v0, v1, [J
 
@@ -2011,10 +2013,106 @@
 
     goto :goto_f
 
-    .line 721
-    nop
+    .line 782
+    :pswitch_7d
+    new-array v0, v1, [J
 
-    :pswitch_data_7e
+    const/16 v1, 0xb
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto :goto_f
+
+    .line 784
+    :pswitch_88
+    new-array v0, v1, [J
+
+    const/16 v1, 0xc
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 786
+    :pswitch_94
+    new-array v0, v1, [J
+
+    const/16 v1, 0xd
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 788
+    :pswitch_a0
+    new-array v0, v1, [J
+
+    const/16 v1, 0xe
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 790
+    :pswitch_ac
+    new-array v0, v1, [J
+
+    const/16 v1, 0xf
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 792
+    :pswitch_b8
+    new-array v0, v1, [J
+
+    const/16 v1, 0x10
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 794
+    :pswitch_c4
+    new-array v0, v1, [J
+
+    const/16 v1, 0x11
+
+    invoke-static {v1}, Ldeeznutz/lol;->getShutter(I)J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v4
+
+    goto/16 :goto_f
+
+    .line 723
+    :pswitch_data_d0
     .packed-switch 0x0
         :pswitch_10
         :pswitch_17
@@ -2027,6 +2125,13 @@
         :pswitch_5c
         :pswitch_67
         :pswitch_72
+        :pswitch_7d
+        :pswitch_88
+        :pswitch_94
+        :pswitch_a0
+        :pswitch_ac
+        :pswitch_b8
+        :pswitch_c4
     .end packed-switch
 .end method
 
@@ -2246,72 +2351,114 @@
     .prologue
     const-wide/32 v0, 0x3b9aca00
 
-    .line 980
-    packed-switch p0, :pswitch_data_36
+    .line 902
+    packed-switch p0, :pswitch_data_60
 
-    .line 1003
+    .line 939
     :goto_6
     :pswitch_6
     return-wide v0
 
-    .line 983
+    .line 905
     :pswitch_7
     const-wide/32 v0, 0xee6b280
 
     goto :goto_6
 
-    .line 985
+    .line 907
     :pswitch_b
     const-wide/32 v0, 0x13de4355
 
     goto :goto_6
 
-    .line 987
+    .line 909
     :pswitch_f
     const-wide/32 v0, 0x1dcd6500
 
     goto :goto_6
 
-    .line 991
+    .line 913
     :pswitch_13
     const-wide/32 v0, 0x77359400
 
     goto :goto_6
 
-    .line 993
+    .line 915
     :pswitch_17
+    const-wide v0, 0xb2d05e00L
+
+    goto :goto_6
+
+    .line 917
+    :pswitch_1d
     const-wide v0, 0xee6b2800L
 
     goto :goto_6
 
-    .line 995
-    :pswitch_1d
+    .line 919
+    :pswitch_23
+    const-wide v0, 0x165a0bc00L
+
+    goto :goto_6
+
+    .line 921
+    :pswitch_29
     const-wide v0, 0x1dcd65000L
 
     goto :goto_6
 
-    .line 997
-    :pswitch_23
+    .line 923
+    :pswitch_2f
     const-wide v0, 0x2540be400L
 
     goto :goto_6
 
-    .line 999
-    :pswitch_29
+    .line 925
+    :pswitch_35
     const-wide v0, 0x2cb417800L
 
     goto :goto_6
 
-    .line 1001
-    :pswitch_2f
+    .line 927
+    :pswitch_3b
+    const-wide v0, 0x3b9aca000L
+
+    goto :goto_6
+
+    .line 929
+    :pswitch_41
+    const-wide v0, 0x4a817c800L
+
+    goto :goto_6
+
+    .line 931
+    :pswitch_47
     const-wide v0, 0x6fc23ac00L
 
     goto :goto_6
 
-    .line 980
+    .line 933
+    :pswitch_4d
+    const-wide v0, 0x9502f9000L
+
+    goto :goto_6
+
+    .line 935
+    :pswitch_53
+    const-wide v0, 0xba43b7400L
+
+    goto :goto_6
+
+    .line 937
+    :pswitch_59
+    const-wide v0, 0xdbcac8e00L
+
+    goto :goto_6
+
+    .line 902
     nop
 
-    :pswitch_data_36
+    :pswitch_data_60
     .packed-switch 0x1
         :pswitch_7
         :pswitch_b
@@ -2323,31 +2470,38 @@
         :pswitch_23
         :pswitch_29
         :pswitch_2f
+        :pswitch_35
+        :pswitch_3b
+        :pswitch_41
+        :pswitch_47
+        :pswitch_4d
+        :pswitch_53
+        :pswitch_59
     .end packed-switch
 .end method
 
 .method public static getShutter_Adjusted()J
     .locals 4
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x2329
 
     if-eq v0, v1, :cond_3
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x232a
 
     if-eq v0, v1, :cond_3
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x270f
 
     if-eq v0, v1, :cond_3
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     const/16 v1, 0x232b
 
@@ -2356,11 +2510,11 @@
     goto :goto_0
 
     :cond_0
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     if-lez v0, :cond_2
 
-    sget v0, Ldeeznutz/lol;->isoVal:I
+    sget v0, Ldeeznutz/lol;->shutterVal:I
 
     sget v1, Ldeeznutz/lol;->ISO_AE:I
 
@@ -2368,7 +2522,7 @@
 
     sget v0, Ldeeznutz/lol;->ISO_AE:I
 
-    sget v1, Ldeeznutz/lol;->isoVal:I
+    sget v1, Ldeeznutz/lol;->shutterVal:I
 
     div-int/2addr v0, v1
 
@@ -2852,7 +3006,7 @@
 .method public static setISeek(I)V
     .locals 2
 
-    sput p0, Ldeeznutz/lol;->isoVal:I
+    sput p0, Ldeeznutz/lol;->shutterVal:I
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2862,7 +3016,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget v1, Ldeeznutz/lol;->isoVal:I
+    sget v1, Ldeeznutz/lol;->shutterVal:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2871,8 +3025,43 @@
     move-result-object v0
 
     invoke-static {v0}, Ldeeznutz/lol;->logMSG(Ljava/lang/String;)V
+	
+	if-eqz v1, :cond_100
+	
+	sget v0, Lcom/custom/extras;->HDRenh:I
 
+	if-nez v0, :cond_100
+	
+	sget v0, Lcom/custom/extras;->PortraitMode:I
+
+	if-nez v0, :cond_200
+	
+	sget v0, Lcom/custom/extras;->NightSight:I
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Use HDR+ Enhanced or Night Sight"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+
+	:cond_100
+	:goto_100
     return-void
+	
+	:cond_200
+	const-string v0, "pref_portenh_bsg"		#p3mod - hdr enhanced for portrait
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+	move-result v0
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Enable Portrait HDR+ Enhanced in P3 Mod Settings"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	goto :goto_100
 .end method
 
 .method public static setISO(I)V
@@ -2897,8 +3086,104 @@
     move-result-object v0
 
     invoke-static {v0}, Ldeeznutz/lol;->logMSG(Ljava/lang/String;)V
+	
+	if-eqz v1, :cond_100
+	
+	sget v0, Lcom/custom/extras;->HDRenh:I
 
+	if-nez v0, :cond_100
+	
+	sget v0, Lcom/custom/extras;->PortraitMode:I
+
+	if-nez v0, :cond_200
+	
+	sget v0, Lcom/custom/extras;->NightSight:I
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Use HDR+ Enhanced or Night Sight"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+
+	:cond_100
+	:goto_100
     return-void
+	
+	:cond_200
+	const-string v0, "pref_portenh_bsg"		#p3mod - hdr enhanced for portrait
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+	move-result v0
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Enable Portrait HDR+ Enhanced in P3 Mod Settings"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	goto :goto_100
+.end method
+
+.method public static setTrails(I)V
+    .locals 2
+
+    sput p0, Ldeeznutz/lol;->TrailVal:I
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "SLIDER 4 IDX: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v1, Ldeeznutz/lol;->TrailVal:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ldeeznutz/lol;->logMSG(Ljava/lang/String;)V
+	
+	if-eqz v1, :cond_100
+	
+	sget v0, Lcom/custom/extras;->HDRenh:I
+
+	if-nez v0, :cond_100
+	
+	sget v0, Lcom/custom/extras;->PortraitMode:I
+
+	if-nez v0, :cond_200
+	
+	sget v0, Lcom/custom/extras;->NightSight:I
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Use HDR+ Enhanced or Night Sight"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+
+	:cond_100
+	:goto_100
+    return-void
+	
+	:cond_200
+	const-string v0, "pref_portenh_bsg"		#p3mod - hdr enhanced for portrait
+
+    invoke-static {v0}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+	move-result v0
+
+	if-nez v0, :cond_100
+	
+	const-string v0, "Enable Portrait HDR+ Enhanced in P3 Mod Settings"
+
+    invoke-static {v0}, Lcom/custom/extras;->ShowToast(Ljava/lang/String;)V
+	
+	goto :goto_100
 .end method
 
 .method public static setIsoAe(Ljava/lang/Integer;)V

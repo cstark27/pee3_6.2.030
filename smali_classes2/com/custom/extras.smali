@@ -12,6 +12,15 @@
 
 .field public static LensFacing:I
 
+.field public static HDRenh:I
+
+.field public static PortraitMode:I
+
+.field public static NightSight:I
+
+.field public static isGoogle:I
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 5

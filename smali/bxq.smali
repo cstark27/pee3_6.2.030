@@ -737,15 +737,15 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lbxq;->d:Lcbf;
+    #iget-object v0, p0, Lbxq;->d:Lcbf;		#p3mod commented out to make hevc actually work
 
-    sget-object v2, Lcbe;->e:Lcbh;
+    #sget-object v2, Lcbe;->e:Lcbh;
 
-    invoke-interface {v0, v2}, Lcbf;->b(Lcbh;)Z
+    #invoke-interface {v0, v2}, Lcbf;->b(Lcbh;)Z
 
-    move-result v0
+    #move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 

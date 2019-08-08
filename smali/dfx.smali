@@ -664,6 +664,10 @@
     move-result v5
 
     invoke-virtual {v12, v5}, Lcom/google/googlex/gcam/ShotParams;->setImage_rotation(I)V
+	
+	#const v15, 0x64
+	
+	#invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setFinal_jpg_quality(I)V
 
     const/4 v15, 0x1
 
@@ -730,6 +734,24 @@
     invoke-virtual {v12, v5}, Lcom/google/googlex/gcam/ShotParams;->setIcc_output_profile_override(I)V
 
     :cond_1
+	const-string v5, "pref_align_key"	#p3mod - light trail slider
+
+    invoke-static {v5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v5
+
+	if-eqz v5, :cond_trailkeyoff
+	
+	sget v15, Lcom/toggle/align/AlignZ;->AlignZS:I
+	
+	goto :goto_trailswitchvalue
+
+	:goto_trailswitchvalue
+    invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setDisable_align(Z)V
+
+    invoke-virtual {v12, v15}, Lcom/google/googlex/gcam/ShotParams;->setMerge_method_override(I)V
+		
+	:cond_trailkeyoff
     invoke-static/range {p6 .. p6}, Ldfa;->a(Lhha;)I
 
     move-result v5
@@ -751,11 +773,40 @@
     invoke-virtual {v4}, Lcom/google/googlex/gcam/AeShotParams;->getUx_mode()I
 
     move-result v4
+	
+	const/4 v5, 0x3	#portrait
+	
+	if-eq v4, v5, :cond_100
+	
+	const/4 v5, 0x1	#zsl
+	
+	if-ne v4, v5, :cond_400
+	
+	const-string v5, "pref_zsl_aiwb"	#p3mod enables AI AWB for HDR zsl
+	
+	invoke-static {v5}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+	
+    move-result v5
 
-    const/4 v5, 0x2
+    if-nez v5, :cond_4
+
+	:cond_400
+    const/4 v5, 0x2	#uxmode enhanced
 
     if-ne v4, v5, :cond_2
 
+	:cond_100
+	const-string v4, "pref_hdreframe_key"
+
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v4
+
+    if-eqz v4, :cond_defaulthdre
+	
+    invoke-virtual {v12, v4}, Lcom/google/googlex/gcam/ShotParams;->setNonzsl_frame_count_override(I)V
+	
+	:cond_defaulthdre
     iget-object v4, v0, Ldfx;->f:Lkib;
 
     iget-object v4, v4, Lkib;->a:Lmpj;
@@ -792,6 +843,17 @@
     goto :goto_0
 
     :cond_3
+	const-string v4, "pref_hdreframe_key"
+
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v4
+
+    if-eqz v4, :cond_defaultns
+	
+    invoke-virtual {v12, v4}, Lcom/google/googlex/gcam/ShotParams;->setNonzsl_frame_count_override(I)V
+	
+	:cond_defaultns
 	const-string v4, "pref_nit_aiwb"	#p3mod AI AWB for night sight
 	
 	invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
@@ -845,6 +907,19 @@
     const/4 v6, 0x0
 
     :goto_1
+	const-string v7, "pref_hdreframe_key"
+
+    invoke-static {v7}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v7
+	
+	if-eqz v7, :cond_checkalwayssabre
+
+    const v8, 0xf
+	
+	if-lt v7, v8, :cond_skipalwayssabre
+	
+	:cond_checkalwayssabre
 	const-string v7, "pref_always_sabre"
 
     invoke-static {v7}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
@@ -853,11 +928,14 @@
 	
 	if-nez v7, :cond_200
 	
-    iget-object v7, v0, Ldfx;->f:Lkib;
+	:cond_skipalwayssabre
+    #iget-object v7, v0, Ldfx;->f:Lkib;
 
-    invoke-static {v7}, Lded;->a(Lkib;)Z
+    #invoke-static {v7}, Lded;->a(Lkib;)Z
 
-    move-result v7
+    #move-result v7
+	
+	sget v7, Lcom/custom/extras;->isGoogle:I	#p3mod disable sabre if not Google device
 
     if-eqz v7, :cond_9
 
@@ -973,6 +1051,17 @@
 
     :cond_c
     :goto_4
+	const-string v4, "pref_hdreframe_key"
+
+    invoke-static {v4}, Lcom/custom/extras;->MenuValue(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-eqz v6, :cond_defaultframes
+	
+	goto :goto_5
+	
+	:cond_defaultframes
     const/16 v4, 0xd
 
     invoke-static {v6, v4}, Ljava/lang/Math;->max(II)I
@@ -981,7 +1070,7 @@
 
     move v6, v4
 
-    :goto_5
+    :goto_5	
     iget-object v4, v0, Ldfx;->s:Lcvv;
 
     invoke-static {v4}, Lded;->a(Lcvv;)Z
@@ -1013,7 +1102,7 @@
 
     if-eqz v4, :cond_e
 
-    const v4, 0x46ea6000    # 30000.0f
+    const v4, 0x47c35000    # 100000.0f
 
     invoke-virtual {v12, v4}, Lcom/google/googlex/gcam/ShotParams;->setMax_tripod_shot_capture_time_ms(F)V
 

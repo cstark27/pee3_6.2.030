@@ -708,6 +708,10 @@
     move-result v10
 
 	if-eqz v10, :cond_100
+	
+	sget v10, Ldeeznutz/lol;->shutterVal:I
+	
+	if-eqz v10, :cond_100
 
 	invoke-static {v3}, Ldeeznutz/lol;->setShutter_AE(Ljava/lang/Long;)V	#pro mode
 
@@ -783,6 +787,10 @@
 
     move-result v10
 
+	if-eqz v10, :cond_200
+	
+	sget v10, Ldeeznutz/lol;->isoVal2:I
+	
 	if-eqz v10, :cond_200
 
     invoke-static {v8}, Ldeeznutz/lol;->setIsoAe(Ljava/lang/Integer;)V	#pro mode

@@ -2961,7 +2961,7 @@
     if-eqz v0, :cond_2
 
     :cond_1
-    sget-object v0, Lhhb;->a:Lhhb;
+    sget-object v0, Lhhb;->a:Lhhb;	#hdr enhanced
 
     iget-object v1, p0, Lhlh;->e:Llsg;
 
@@ -2976,6 +2976,8 @@
     if-eqz v0, :cond_3
 
     :cond_2
+	sput v0, Lcom/custom/extras;->HDRenh:I
+	
     iget-object v0, p0, Lhlh;->j:Lcom/google/android/apps/camera/optionsbar/view/OptionsBarView;
 
     sget-object v1, Lhml;->i:Lhml;
@@ -2984,7 +2986,9 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_3		#disables motion button
+	sput v0, Lcom/custom/extras;->HDRenh:I
+
     iget-object v0, p0, Lhlh;->j:Lcom/google/android/apps/camera/optionsbar/view/OptionsBarView;
 
     sget-object v1, Lhml;->i:Lhml;

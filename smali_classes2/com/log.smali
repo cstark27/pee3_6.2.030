@@ -175,7 +175,7 @@
 .method public static logMSG(Ljava/lang/String;)V
     .locals 3
 
-    const-string v0, "DeezNuts"
+    const-string v0, "SavitarLog"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
